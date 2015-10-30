@@ -1,5 +1,7 @@
 package yarmark.presidents;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,15 +25,32 @@ public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> 
     public PresidentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //layout inflator takes the xml and creates java classes out of it (like gson reads gson)
         //tell it to inflate with the xml you made
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.president_list_item, parent, (false));
+        View itemView = LayoutInflater
+                .from(parent.getContext())
+                .inflate(R.layout.president_list_item, parent, (false));
         return new PresidentViewHolder(itemView);
     }
 
     //after you scroll, already have the view
     //just need to bind the next instance to an available view
     @Override
-    public void onBindViewHolder(PresidentViewHolder holder, int position) {
+    public void onBindViewHolder(final PresidentViewHolder holder, int position) {
         holder.bind(presidents[position]);
+
+        //when i click on one of the items in my list view
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //make an intent to switch activities on click
+
+                Context context = holder.itemView.getContext();
+                //intents need a context and the name of the activity
+                Intent intent = new Intent(context, DetailActivity.class);
+
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override

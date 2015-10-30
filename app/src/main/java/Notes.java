@@ -1,7 +1,8 @@
 /**
  * Created by student1 on 10/22/2015.
  */
-public class Notes {
+public class
+        Notes {
     /*
     recyclerView is used to scroll through a list ex: contacts
 EX: LIST
