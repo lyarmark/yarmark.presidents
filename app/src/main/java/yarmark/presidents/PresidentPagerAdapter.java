@@ -34,14 +34,19 @@ public class PresidentPagerAdapter extends PagerAdapter {
 
         //need to call findViewById will not work without view.
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(president.getPresident());
+        name.setText("Name:\t" + president.getPresident());
         TextView number = (TextView) view.findViewById(R.id.number);
-        number.setText(String.valueOf(president.getNumber()));
-        TextView birth_year = (TextView) view.findViewById (R.id.birth);
-        TextView death_year = (TextView) view.findViewById(R.id.death);
-        TextView took_office = (TextView) view.findViewById(R.id.took);
-        TextView left_office = (TextView) view.findViewById(R.id.left);
+        number.setText("Number:\t" + String.valueOf(president.getNumber()));
+        TextView birth = (TextView) view.findViewById (R.id.birth);
+        birth.setText ("Birth Year:\t" + String.valueOf(president.getBirth_year()));
+        TextView death = (TextView) view.findViewById(R.id.death);
+        death.setText("Death Year:\t" + String.valueOf(president.getDeath_year()));
+        TextView took = (TextView) view.findViewById(R.id.took);
+        took.setText("Took Office:\t" + president.getTook_office());
+        TextView left = (TextView) view.findViewById(R.id.left);
+        left.setText("Left Office:\t" + president.getLeft_office());
         TextView party = (TextView) view.findViewById(R.id.party);
+        party.setText("Party:\t" + president.getParty());
 
         container.addView(view);
         return view;
