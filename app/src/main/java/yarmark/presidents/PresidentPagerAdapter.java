@@ -37,6 +37,11 @@ public class PresidentPagerAdapter extends PagerAdapter {
         name.setText(president.getPresident());
         TextView number = (TextView) view.findViewById(R.id.number);
         number.setText(String.valueOf(president.getNumber()));
+        TextView birth_year = (TextView) view.findViewById (R.id.birth);
+        TextView death_year = (TextView) view.findViewById(R.id.death);
+        TextView took_office = (TextView) view.findViewById(R.id.took);
+        TextView left_office = (TextView) view.findViewById(R.id.left);
+        TextView party = (TextView) view.findViewById(R.id.party);
 
         container.addView(view);
         return view;
