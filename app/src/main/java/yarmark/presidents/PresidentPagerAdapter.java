@@ -6,9 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 /**
  * Created by student1 on 10/29/2015.
  */
+
+/*
+* pagerAdapter needs a view holder also
+* not a separate class, but part of the xml
+* need to create a new layout and inflate it with a view of president pager item
+* detailActivity creates a view with the presidentAdapter
+* */
+
+
 public class PresidentPagerAdapter extends PagerAdapter {
 
     President[] presidents;
@@ -31,6 +41,10 @@ public class PresidentPagerAdapter extends PagerAdapter {
         President president = presidents[position];
         //position parameter is the position in the array
         View view = inflater.inflate(R.layout.president_pager_item, null);
+
+        //use a view holdeer becuase this establishes the view
+        //then you just need to setText and stuff
+        //THATS WHY YOU USE VIEW.FINDVIEWBYID TO CREATE THE TEXTVIEWS!!!
 
         //need to call findViewById will not work without view.
         TextView name = (TextView) view.findViewById(R.id.name);

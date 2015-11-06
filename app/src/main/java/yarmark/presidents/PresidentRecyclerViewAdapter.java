@@ -10,10 +10,23 @@ import android.view.ViewGroup;
 /**
  * Created by student1 on 10/22/2015.
  */
-public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
+
+//adapts array of presidents to view of presidents
+//as needed, pulls a president from the array and sends it to the view
+
+
+//view holder- hold the views related to the data in each view of the recyler view
+//need to bind the view holder to a view
+
+//recycler view has :
+//recycler view
+//adapter
+//view holder
+
+public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
     private President[] presidents;
 
-    public PresidentAdapter(President[] presidents) {
+    public PresidentRecyclerViewAdapter(President[] presidents) {
         this.presidents = presidents;
 
     }
@@ -34,7 +47,7 @@ public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> 
     //after you scroll, already have the view
     //just need to bind the next instance to an available view
     @Override
-    public void onBindViewHolder(final PresidentViewHolder holder, int position) {
+    public void onBindViewHolder(final PresidentViewHolder holder, final int position) {
         holder.bind(presidents[position]);
 
         //when i click on one of the items in my list view
@@ -47,6 +60,14 @@ public class PresidentAdapter extends RecyclerView.Adapter<PresidentViewHolder> 
                 //intents need a context and the name of the activity
                 Intent intent = new Intent(context, DetailActivity.class);
 
+                //sent the location in the array to the intent with put extra
+                //to access position, need to have it final in the header
+                //this is like a hashmap
+                //intent.putExtra("POSITION", position);
+
+                //send in the array of presidents
+                //in a serializable way
+                intent.putExtra("PRESIDENTS", presidents);
                 context.startActivity(intent);
 
             }

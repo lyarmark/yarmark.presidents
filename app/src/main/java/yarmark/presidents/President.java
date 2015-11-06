@@ -2,10 +2,12 @@ package yarmark.presidents;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by student1 on 10/22/2015.
  */
-public class President {
+public class President implements Serializable{
     //variables in java should always be in camelCase
     //but the JSON file has under_scores
 

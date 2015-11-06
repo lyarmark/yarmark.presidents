@@ -6,10 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AbsListView;
 
 import com.google.gson.FieldNamingPolicy;
-import com.google.gson.FieldNamingStrategy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     //THE WRONG WAY
-    public static President[] presidents;
+    //public static President[] presidents;
 
 
     @Override
@@ -46,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         InputStream in = getResources().openRawResource(R.raw.presidents);
 
-        presidents = gson.fromJson(new InputStreamReader(in), President[].class);
+        President[] presidents = gson.fromJson(new InputStreamReader(in), President[].class);
 
-        PresidentAdapter adapter = new PresidentAdapter(presidents);
+        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents);
         recyclerView.setAdapter(adapter);
     }
 
