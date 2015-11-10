@@ -1,10 +1,18 @@
 package yarmark.presidents;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 
 
 /**
@@ -21,10 +29,20 @@ import android.widget.TextView;
 
 public class PresidentPagerAdapter extends PagerAdapter {
 
-    President[] presidents;
+    private President[] presidents;
+    private int[] presidentPictures;
+/*
+    ImageView picture;
+    TextView name;
+    TextView number;
+    TextView lived;
+    TextView served;
+    TextView party;
+*/
 
-    public PresidentPagerAdapter(President[] presidents) {
+    public PresidentPagerAdapter(President[] presidents, int[] presidentPictures) {
         this.presidents = presidents;
+        this.presidentPictures = presidentPictures;
     }
 
     @Override
@@ -42,24 +60,28 @@ public class PresidentPagerAdapter extends PagerAdapter {
         //position parameter is the position in the array
         View view = inflater.inflate(R.layout.president_pager_item, null);
 
-        //use a view holdeer becuase this establishes the view
+        //use a view holder because this establishes the view
         //then you just need to setText and stuff
         //THATS WHY YOU USE VIEW.FINDVIEWBYID TO CREATE THE TEXTVIEWS!!!
 
         //need to call findViewById will not work without view.
-        TextView name = (TextView) view.findViewById(R.id.name);
+
+        ImageView picture = (ImageView) view.findViewById(R.id.image);
+        picture.setImageResource(presidentPictures[position]);
+
+       TextView name = (TextView) view.findViewById(R.id.name);
         name.setText("Name:\t" + president.getPresident());
+
         TextView number = (TextView) view.findViewById(R.id.number);
         number.setText("Number:\t" + String.valueOf(president.getNumber()));
-        TextView birth = (TextView) view.findViewById (R.id.birth);
-        birth.setText ("Birth Year:\t" + String.valueOf(president.getBirth_year()));
-        TextView death = (TextView) view.findViewById(R.id.death);
-        death.setText("Death Year:\t" + String.valueOf(president.getDeath_year()));
-        TextView took = (TextView) view.findViewById(R.id.took);
-        took.setText("Took Office:\t" + president.getTook_office());
-        TextView left = (TextView) view.findViewById(R.id.left);
-        left.setText("Left Office:\t" + president.getLeft_office());
-        TextView party = (TextView) view.findViewById(R.id.party);
+
+        TextView lived = (TextView) view.findViewById(R.id.birth);
+        lived.setText("Lived:\t" + String.valueOf(president.getBirth_year()) + "-" + String.valueOf(president.getDeath_year()));
+
+       TextView served = (TextView) view.findViewById(R.id.took);
+        served.setText("Served:\t" + president.getTook_office() + " - " + president.getLeft_office());
+
+       TextView party = (TextView) view.findViewById(R.id.party);
         party.setText("Party:\t" + president.getParty());
 
         container.addView(view);
@@ -69,6 +91,7 @@ public class PresidentPagerAdapter extends PagerAdapter {
     //the total number of presidents we will display
     @Override
     public int getCount() {
+
         return presidents.length;
     }
 
@@ -77,4 +100,6 @@ public class PresidentPagerAdapter extends PagerAdapter {
         //don't understand why we do this
         return view == object;
     }
+
+
 }

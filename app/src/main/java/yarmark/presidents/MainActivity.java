@@ -46,7 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
         President[] presidents = gson.fromJson(new InputStreamReader(in), President[].class);
 
-        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents);
+        int[] presidentPictures = new int[]{
+                R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d, R.drawable.e, R.drawable.f, R.drawable.g, R.drawable.h,
+                R.drawable.i, R.drawable.j, R.drawable.k, R.drawable.l, R.drawable.m, R.drawable.n, R.drawable.o, R.drawable.p,
+                R.drawable.q, R.drawable.r, R.drawable.s, R.drawable.t, R.drawable.u, R.drawable.v, R.drawable.w, R.drawable.wa,
+                R.drawable.x, R.drawable.y, R.drawable.z, R.drawable.za, R.drawable.zb, R.drawable.zc, R.drawable.zd, R.drawable.ze,
+                R.drawable.zf,R.drawable.zg, R.drawable.zh, R.drawable.zi, R.drawable.zj, R.drawable.zk, R.drawable.zl, R.drawable.zm,
+                R.drawable.zm,R.drawable.zn, R.drawable.zo, R.drawable.zo, R.drawable.zp, R.drawable.zq};
+
+        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents, presidentPictures);
         recyclerView.setAdapter(adapter);
     }
 

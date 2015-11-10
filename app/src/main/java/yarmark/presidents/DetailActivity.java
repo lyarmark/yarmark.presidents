@@ -25,15 +25,16 @@ public class DetailActivity extends AppCompatActivity {
         //but serializable is too slow (WE ARE OBBSESSED WITH SPEED)
         President[] presidents = (President[]) getIntent().getSerializableExtra("PRESIDENTS");
 
+        int[] presidentPictures = getIntent().getIntArrayExtra("PRESIDENTPICTURES");
 
         //needs to know what to display
         //and it needs the view of how to display it
         //need an adapter
-        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents);
+        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents, presidentPictures);
         viewPager.setAdapter(adapter);
 
-        // int position = getIntent().getIntExtra("POSITION", 0);
-        //viewPager.setCurrentItem(position);
+        int position = getIntent().getIntExtra("POSITION", 0);
+        viewPager.setCurrentItem(position);
 
         //need to get the list of presidents
         //see main for the wrong way to do it

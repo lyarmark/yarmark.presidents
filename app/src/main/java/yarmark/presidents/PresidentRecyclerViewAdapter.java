@@ -25,9 +25,11 @@ import android.view.ViewGroup;
 
 public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
     private President[] presidents;
+    private int[] presidentPictures;
 
-    public PresidentRecyclerViewAdapter(President[] presidents) {
+    public PresidentRecyclerViewAdapter(President[] presidents, int[] presidentPictures) {
         this.presidents = presidents;
+        this.presidentPictures = presidentPictures;
 
     }
 
@@ -63,11 +65,12 @@ public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<President
                 //sent the location in the array to the intent with put extra
                 //to access position, need to have it final in the header
                 //this is like a hashmap
-                //intent.putExtra("POSITION", position);
+                intent.putExtra("POSITION", position);
 
                 //send in the array of presidents
                 //in a serializable way
                 intent.putExtra("PRESIDENTS", presidents);
+                intent.putExtra("PRESIDENTPICTURES", presidentPictures);
                 context.startActivity(intent);
 
             }
