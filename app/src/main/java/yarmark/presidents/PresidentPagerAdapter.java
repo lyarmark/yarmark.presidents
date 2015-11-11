@@ -31,14 +31,6 @@ public class PresidentPagerAdapter extends PagerAdapter {
 
     private President[] presidents;
     private int[] presidentPictures;
-/*
-    ImageView picture;
-    TextView name;
-    TextView number;
-    TextView lived;
-    TextView served;
-    TextView party;
-*/
 
     public PresidentPagerAdapter(President[] presidents, int[] presidentPictures) {
         this.presidents = presidents;
@@ -76,10 +68,23 @@ public class PresidentPagerAdapter extends PagerAdapter {
         number.setText("Number:\t" + String.valueOf(president.getNumber()));
 
         TextView lived = (TextView) view.findViewById(R.id.birth);
-        lived.setText("Lived:\t" + String.valueOf(president.getBirth_year()) + "-" + String.valueOf(president.getDeath_year()));
+        lived.setText("Lived:\t" + String.valueOf(president.getBirth_year() + " - "));
+        if (president.getDeath_year() != 0) {
+            lived.append(String.valueOf(president.getDeath_year()));
+        }
+        else {
+            lived.append("present");
+        }
 
        TextView served = (TextView) view.findViewById(R.id.took);
-        served.setText("Served:\t" + president.getTook_office() + " - " + president.getLeft_office());
+        served.setText("Served:\t" + president.getTook_office() + " - ");
+
+                if (president.getLeft_office() != null) {
+                    served.append(president.getLeft_office());
+                }
+        else {
+                    served.append("present");
+                }
 
        TextView party = (TextView) view.findViewById(R.id.party);
         party.setText("Party:\t" + president.getParty());
