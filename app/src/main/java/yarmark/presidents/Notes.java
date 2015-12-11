@@ -17,7 +17,7 @@ public class Notes {
 
 
      RecyclerView (RV) only know how to recylce components
-     give it a loyout manager- which knows how to display things on the screen
+     give it a layout manager- which knows how to display things on the screen
      also give it an adapter,
      which knows how to take the model object (president) and pass in a view holder to the RV
      view holder holds the view
