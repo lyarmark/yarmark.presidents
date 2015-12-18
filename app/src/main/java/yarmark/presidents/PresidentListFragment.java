@@ -20,7 +20,8 @@ import java.io.InputStreamReader;
  * Created by student1 on 12/10/2015.
  */
 public class PresidentListFragment extends Fragment {
-private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,10 +58,12 @@ private RecyclerView recyclerView;
                 R.drawable.i, R.drawable.j, R.drawable.k, R.drawable.l, R.drawable.m, R.drawable.n, R.drawable.o, R.drawable.p,
                 R.drawable.q, R.drawable.r, R.drawable.s, R.drawable.t, R.drawable.u, R.drawable.v, R.drawable.w, R.drawable.wa,
                 R.drawable.x, R.drawable.y, R.drawable.z, R.drawable.za, R.drawable.zb, R.drawable.zc, R.drawable.zd, R.drawable.ze,
-                R.drawable.zf,R.drawable.zg, R.drawable.zh, R.drawable.zi, R.drawable.zj, R.drawable.zk, R.drawable.zl, R.drawable.zm,
+                R.drawable.zf, R.drawable.zg, R.drawable.zh, R.drawable.zi, R.drawable.zj, R.drawable.zk, R.drawable.zl, R.drawable.zm,
                 R.drawable.zn, R.drawable.zo, R.drawable.zp, R.drawable.zq};
 
-        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents, presidentPictures);
+        OnPresidentSelectedListener listener = (OnPresidentSelectedListener) getActivity();
+
+        PresidentRecyclerViewAdapter adapter = new PresidentRecyclerViewAdapter(presidents, presidentPictures, listener);
         recyclerView.setAdapter(adapter);
     }
 }

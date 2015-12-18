@@ -24,12 +24,14 @@ import android.view.ViewGroup;
 //view holder
 
 public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
+    private OnPresidentSelectedListener listener;
     private President[] presidents;
     private int[] presidentPictures;
 
-    public PresidentRecyclerViewAdapter(President[] presidents, int[] presidentPictures) {
+    public PresidentRecyclerViewAdapter(President[] presidents, int[] presidentPictures, OnPresidentSelectedListener listener) {
         this.presidents = presidents;
         this.presidentPictures = presidentPictures;
+        this.listener = listener;
 
     }
 
@@ -51,28 +53,10 @@ public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<President
     @Override
     public void onBindViewHolder(final PresidentViewHolder holder, final int position) {
         holder.bind(presidents[position]);
-
-        //when i click on one of the items in my list view
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //make an intent to switch activities on click
-
-                Context context = holder.itemView.getContext();
-                //intents need a context and the name of the activity
-                Intent intent = new Intent(context, DetailActivity.class);
-
-                //sent the location in the array to the intent with put extra
-                //to access position, need to have it final in the header
-                //this is like a hashmap
-                intent.putExtra("POSITION", position);
-
-                //send in the array of presidents
-                //in a serializable way
-                intent.putExtra("PRESIDENTS", presidents);
-                intent.putExtra("PRESIDENTPICTURES", presidentPictures);
-                context.startActivity(intent);
-
+                listener.onSelect(presidents, presidentPictures, position);
             }
         });
     }

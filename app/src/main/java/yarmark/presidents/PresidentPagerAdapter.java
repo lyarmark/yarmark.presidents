@@ -61,7 +61,7 @@ public class PresidentPagerAdapter extends PagerAdapter {
         ImageView picture = (ImageView) view.findViewById(R.id.image);
         picture.setImageResource(presidentPictures[position]);
 
-       TextView name = (TextView) view.findViewById(R.id.name);
+        TextView name = (TextView) view.findViewById(R.id.name);
         name.setText("Name:\t" + president.getPresident());
 
         TextView number = (TextView) view.findViewById(R.id.number);
@@ -71,22 +71,20 @@ public class PresidentPagerAdapter extends PagerAdapter {
         lived.setText("Lived:\t" + String.valueOf(president.getBirth_year() + " - "));
         if (president.getDeath_year() != 0) {
             lived.append(String.valueOf(president.getDeath_year()));
-        }
-        else {
+        } else {
             lived.append("present");
         }
 
-       TextView served = (TextView) view.findViewById(R.id.tookLeft);
+        TextView served = (TextView) view.findViewById(R.id.tookLeft);
         served.setText("Served:\t" + president.getTook_office() + " - ");
 
-                if (president.getLeft_office() != null) {
-                    served.append(president.getLeft_office());
-                }
-        else {
-                    served.append("present");
-                }
+        if (president.getLeft_office() != null) {
+            served.append(president.getLeft_office());
+        } else {
+            served.append("present");
+        }
 
-       TextView party = (TextView) view.findViewById(R.id.party);
+        TextView party = (TextView) view.findViewById(R.id.party);
         party.setText("Party:\t" + president.getParty());
 
         container.addView(view);
