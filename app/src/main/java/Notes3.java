@@ -1,9 +1,7 @@
-package yarmark.presidents;
-
 /**
  * Created by student1 on 12/10/2015.
  */
-public class Notes2 {
+public class Notes3 {
     /*
     when the ipad came out, everyone realized that you need to create apps that look like they were made for tablets.
     not just phones

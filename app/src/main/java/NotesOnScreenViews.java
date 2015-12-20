@@ -1,5 +1,3 @@
-package yarmark.presidents;
-
 /**
  * Created by student1 on 11/12/2015.
  */

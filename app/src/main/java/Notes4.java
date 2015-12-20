@@ -1,9 +1,7 @@
-package yarmark.presidents;
-
 /**
  * Created by student1 on 12/17/2015.
  */
-public class Notes3 {
+public class Notes4 {
 
     //copy activity_main xml into the layout-land folder
     /*

@@ -1,9 +1,7 @@
-package yarmark.presidents;
-
 /**
  * Created by student1 on 10/29/2015.
  */
-public class Notes {
+public class Notes2 {
     /*
     MODEL VIEW CONTROLLER
     View- recycler view
