@@ -26,11 +26,9 @@ import android.view.ViewGroup;
 public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<PresidentViewHolder> {
     private OnPresidentSelectedListener listener;
     private President[] presidents;
-    private int[] presidentPictures;
 
-    public PresidentRecyclerViewAdapter(President[] presidents, int[] presidentPictures, OnPresidentSelectedListener listener) {
+    public PresidentRecyclerViewAdapter(President[] presidents, OnPresidentSelectedListener listener) {
         this.presidents = presidents;
-        this.presidentPictures = presidentPictures;
         this.listener = listener;
 
     }
@@ -56,7 +54,7 @@ public class PresidentRecyclerViewAdapter extends RecyclerView.Adapter<President
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onSelect(presidents, presidentPictures, position);
+                listener.onSelect(presidents, position);
             }
         });
     }

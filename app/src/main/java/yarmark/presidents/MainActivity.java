@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity implements OnPresidentSelect
 
 
     @Override
-    public void onSelect(President[] presidents, int[] presidentPictures, int position) {
+    public void onSelect(President[] presidents, int position) {
 
         if (detailFragment != null) {
             //landscape
-            detailFragment.showPresidentDetail(presidents, position, presidentPictures);
+            detailFragment.showPresidentDetail(presidents, position);
         } else {
 
             Intent intent = new Intent(this, DetailActivity.class);
@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements OnPresidentSelect
             //send in the array of presidents
             //in a serializable way
             intent.putExtra("PRESIDENTS", presidents);
-            intent.putExtra("PRESIDENTPICTURES", presidentPictures);
             this.startActivity(intent);
         }
     }

@@ -5,5 +5,5 @@ package yarmark.presidents;
  */
 public interface OnPresidentSelectedListener {
 
-    void onSelect(President[] array, int[] pictures, int position);
+    void onSelect(President[] array, int position);
 }

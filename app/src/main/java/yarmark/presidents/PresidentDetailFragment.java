@@ -47,8 +47,8 @@ public class PresidentDetailFragment extends Fragment {
          */
     }
 
-    public void showPresidentDetail(President[] presidents, int position, int[] presidentPictures) {
-        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents, presidentPictures);
+    public void showPresidentDetail(President[] presidents, int position) {
+        PresidentPagerAdapter adapter = new PresidentPagerAdapter(presidents);
         this.viewPager.setAdapter(adapter);
         this.viewPager.setCurrentItem(position);
 

@@ -18,8 +18,7 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         President[] presidents = (President[]) intent.getSerializableExtra("PRESIDENTS");
         int position = intent.getIntExtra("POSITION", 0);
-        int[] presidentPictures = intent.getIntArrayExtra("PRESIDENTPICTURES");
-        fragment.showPresidentDetail(presidents, position, presidentPictures);
+        fragment.showPresidentDetail(presidents, position);
     }
 
 
